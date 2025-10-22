@@ -2,9 +2,9 @@
     "usuarios": [
         {
             "id": 1,
-            "nome": "Gregory",
-            "email": "gregory@gmail.com",
-            "senha": "5",
+            "nome": "Gustavo",
+            "email": "gustavoblazechi@gmail.com",
+            "senha": "37",
             "tipo": "Administrador",
             "imagemUrl": "https://observatoriodocinema.com.br/wp-content/uploads/2021/12/greg-todo-mund-odeia.jpg"
         },
