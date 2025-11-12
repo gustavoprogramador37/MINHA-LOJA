@@ -4,6 +4,9 @@ const url = "http://localhost:5000";
 //Importando o hook de useState para controlar as variáveis
 import { useState, useEffect } from "react";
 
+
+
+
 export function useListaCategorias() {
   // Variável para armazenar as categorias
   const [categorias, setCategorias] = useState([]);
@@ -82,4 +85,47 @@ export function useListaProdutos(){
   },[])
   // Retorna a lista de produtos
   return produtos
+}
+
+//D
+export function useDeletarProduto(){
+  //Recebe o id do produto e requisita a api a exclusão
+  const deletarProduto = async (idProduto) => {
+   const req = await fetch(`${url}/produtos/${idProduto}`,{
+    method:"DELETE"
+   })
+   const res = await req.json()
+   return res
+  } 
+
+  return{ deletarProduto}
+}
+
+// U - Atualizar
+// Hook para buscar informações de um produto especifico
+export function useBuscarProdutoPorId(){
+  //Recebe o id do produto e busca as informações
+  const buscarProdutoPorId = async (idProduto) => {
+     const req = await fetch(`${url}/produtos/${idProduto}`)
+     const res = await req.json
+     console.log("Produto encontrado:", res);
+     return res 
+    
+  }
+  return {buscarProdutoPorId}
+}
+
+// Hook para atualizar um produto
+export function useAtualizadoProduto(){
+// Envia os dados novos, para o produto específico 
+const atualizarProduto = async (data, idProduto) => {
+   const req = await fetch(`${url}/produtos/${idProduto}`,{
+   method: "PUT",
+   headers: {"Content-type": "application/json" },
+   boddy: JSON.stringify(data)
+})
+  const res = await req.json()
+  return res
+}
+return{ atualizarProduto}
 }
